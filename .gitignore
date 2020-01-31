@@ -1,3 +1,11 @@
+# for web2py
+cache
+databases
+errors
+sessions
+uploads
+private
+
 # inherit https://github.com/github/gitignore/blob/master/Python.gitignore
 *.py[co]
 
