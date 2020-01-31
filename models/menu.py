@@ -6,5 +6,5 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    ('Provisiones', False, URL('default', 'index'), [])
+    ('Provisiones', False, URL('default', 'provision'), [])
 ]

@@ -4,13 +4,17 @@
 # this file is released under public domain and you can use without limitations
 # -------------------------------------------------------------------------
 
-@auth.requires_login()
 def index():
     if db(db.auth_user).count() == 0:
+        db.auth_group.insert(role='admin')
         user_admin_id = db.auth_user.insert(first_name="admin", email="admin@admin.com",
                                   password=db.auth_user.password.requires[0]('admin')[0])
         auth.add_membership('admin', db.auth_user(user_admin_id))
+    return redirect(URL('default', 'provision'))
     
+    
+@auth.requires_login()
+def provision():
     db.Provision.id.readable = db.Provision.id.writable = False
 
     fields = [
